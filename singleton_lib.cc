@@ -30,7 +30,8 @@ void Foo::ranInitData(size_t sz) {
 void Foo::print() {
   Foo& foo = getInstance();
   lock_guard<mutex> lock(foo.mtx); // 添加锁
-  cout << "[";
+  // print this
+  cout << this << "\t[";
   int num = data.size();
   for (int i = 0; i < num - 1; ++i) {
     cout << static_cast<int>(data[i]) << "\t";
